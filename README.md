@@ -1,6 +1,11 @@
 
 # ModelVault
 
+[![Documentation](https://readthedocs.org/projects/modelvault/badge/?version=latest)](https://modelvault.readthedocs.io/en/latest/)
+[![PyPI version](https://img.shields.io/pypi/v/modelvault.svg)](https://pypi.org/project/modelvault/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Code style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
 > **Your models are your source of truth. ModelVault keeps them that way.**
 
 ModelVault is a **Model Integrity Platform** for Python. It bridges the gap between **Pydantic** and trusted databases such as **SQLite**, **PostgreSQL**, and **DuckDB**.

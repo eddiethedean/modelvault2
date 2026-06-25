@@ -430,9 +430,9 @@ These may be revisited based on adoption feedback after 1.0.
 
 ## Current Status
 
-**ModelVault is in the design phase.** No implementation code exists yet.
+**ModelVault v0.17 is implemented.** SQLite-backed table storage, typed collections, registry metadata, and drift detection are available in the `0.17.0` release.
 
-The immediate next step is **v0.17 Phase 0**: scaffold `pyproject.toml`, `src/modelvault/`, and `tests/`, then follow the build order in [`docs/internal/IMPLEMENTATION_PLAN.md`](docs/internal/IMPLEMENTATION_PLAN.md).
+For build details, see the [Implementation Plan](https://github.com/eddiethedean/modelvault2/blob/main/docs/internal/IMPLEMENTATION_PLAN.md).
 
 ---
 
@@ -440,8 +440,8 @@ The immediate next step is **v0.17 Phase 0**: scaffold `pyproject.toml`, `src/mo
 
 | Document | Purpose |
 |----------|---------|
-| [`README.md`](README.md) | Project overview and quick example |
-| [`docs/internal/MVP_SPEC.md`](docs/internal/MVP_SPEC.md) | Exact v0.17 scope |
-| [`docs/internal/IMPLEMENTATION_PLAN.md`](docs/internal/IMPLEMENTATION_PLAN.md) | v0.17 build order |
-| [`docs/internal/ARCHITECTURE.md`](docs/internal/ARCHITECTURE.md) | System design |
-| [`docs/internal/SPEC.md`](docs/internal/SPEC.md) | Functional requirements |
+| [README](https://github.com/eddiethedean/modelvault2/blob/main/README.md) | Project overview and quick example |
+| [MVP Spec](https://github.com/eddiethedean/modelvault2/blob/main/docs/internal/MVP_SPEC.md) | Exact v0.17 scope |
+| [Implementation Plan](https://github.com/eddiethedean/modelvault2/blob/main/docs/internal/IMPLEMENTATION_PLAN.md) | v0.17 build order |
+| [Architecture](https://github.com/eddiethedean/modelvault2/blob/main/docs/internal/ARCHITECTURE.md) | System design |
+| [Technical Spec](https://github.com/eddiethedean/modelvault2/blob/main/docs/internal/SPEC.md) | Functional requirements |
