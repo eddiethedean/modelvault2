@@ -301,6 +301,8 @@ ruff check src tests
 
 See [CHANGELOG.md](CHANGELOG.md) for release history and [ROADMAP.md](ROADMAP.md) for planned versions.
 
+Releases are published to PyPI automatically when a version tag is pushed (for example `v0.17.0`).
+
 The project is built around one central promise:
 
 > **Your models are your source of truth. ModelVault keeps them that way.**
