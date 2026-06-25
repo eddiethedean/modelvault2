@@ -1,6 +1,6 @@
 # ModelVault Roadmap
 
-This document defines the versioned delivery plan for ModelVault from first proof-of-concept through a stable 1.0 release.
+This document defines the versioned delivery plan for ModelVault from **v0.17** (first public release) through a stable **v1.0**.
 
 Each phase has a clear theme, explicit scope boundaries, and measurable success criteria. Later phases build on earlier ones; features marked **deferred** are intentionally out of scope until their target version.
 
@@ -18,20 +18,33 @@ Every release should make Pydantic models more trustworthy across the persistenc
 
 | Version | Theme | Primary outcome |
 |---------|-------|-----------------|
-| **v0.1** | Prove the architecture | Pydantic models persist to SQLite with validation and registry metadata |
-| **v0.2** | Expand storage and observability | Multiple storage strategies, structured health and validation reports |
-| **v0.3** | Model lifecycle intelligence | Drift classification, migration planning, operational CLI |
-| **v0.4** | Production backends and async | PostgreSQL, async collections, Alembic integration |
-| **v0.5** | Analytics and data interchange | DuckDB, DataFrame and Parquet interoperability |
+| **v0.17** | Prove the architecture | Pydantic models persist to SQLite with validation and registry metadata |
+| **v0.18** | Expand storage and observability | Multiple storage strategies, structured health and validation reports |
+| **v0.19** | Model lifecycle intelligence | Drift classification, migration planning, operational CLI |
+| **v0.20** | Production backends and async | PostgreSQL, async collections, Alembic integration |
+| **v0.21** | Analytics and data interchange | DuckDB, DataFrame and Parquet interoperability |
 | **v1.0** | Stability and guarantees | Frozen public API, long-term compatibility commitments |
+
+### Versioning policy
+
+ModelVault uses **semantic versioning**. Pre-1.0 releases increment the minor version for each planned milestone:
+
+```text
+v0.17 → v0.18 → v0.19 → v0.20 → v0.21 → v1.0
+```
+
+- **v0.17** is the first implementable release (architecture proof on SQLite).
+- **v0.18–v0.21** each add a major capability layer without breaking the prior release's contracts.
+- **v0.22–v0.99** are reserved for patch releases, release candidates, and unplanned course corrections before 1.0.
+- **v1.0** freezes the public API and begins long-term compatibility guarantees.
 
 ---
 
-## v0.1 — Architecture Proof
+## v0.17 — Architecture Proof
 
 **Theme:** Prove that a Pydantic model can become a persistence contract, be registered in database metadata, execute through a planner, persist in SQLite, and load back as a validated model.
 
-**Product statement:** ModelVault v0.1 is a SQLite-backed model integrity layer for ordinary Pydantic v2 models.
+**Product statement:** ModelVault v0.17 is a SQLite-backed model integrity layer for ordinary Pydantic v2 models.
 
 ### In scope
 
@@ -93,7 +106,7 @@ Metadata tables:
 
 ### Success criteria
 
-v0.1 is complete when a developer can:
+v0.17 is complete when a developer can:
 
 1. Define a Pydantic model and register it with `@model`.
 2. Open a SQLite vault and obtain a typed collection.
@@ -126,11 +139,11 @@ assert loaded.email == "alice@example.com"
 
 ---
 
-## v0.2 — Storage Strategies and Observability
+## v0.18 — Storage Strategies and Observability
 
 **Theme:** Support real-world model shapes and give operators clear visibility into collection health.
 
-**Depends on:** v0.1 contract layer, registry, and collection API.
+**Depends on:** v0.17 contract layer, registry, and collection API.
 
 ### In scope
 
@@ -158,7 +171,7 @@ assert loaded.email == "alice@example.com"
 
 #### Registry
 
-- `modelvault_migrations` metadata table (history records; planning still deferred to v0.3)
+- `modelvault_migrations` metadata table (history records; planning still deferred to v0.19)
 - `modelvault_indexes` metadata table
 
 ### Out of scope
@@ -172,7 +185,7 @@ assert loaded.email == "alice@example.com"
 
 ### Success criteria
 
-v0.2 is complete when a developer can:
+v0.18 is complete when a developer can:
 
 1. Choose table, document, or hybrid storage per model on the same vault.
 2. Round-trip nested models reliably under document and hybrid modes.
@@ -182,11 +195,11 @@ v0.2 is complete when a developer can:
 
 ---
 
-## v0.3 — Drift, Migrations, and CLI
+## v0.19 — Drift, Migrations, and CLI
 
 **Theme:** Turn contract changes into understandable lifecycle events with safe operational tooling.
 
-**Depends on:** v0.2 storage strategies and report infrastructure.
+**Depends on:** v0.18 storage strategies and report infrastructure.
 
 ### In scope
 
@@ -226,7 +239,7 @@ modelvault plan-migration
 
 ### Out of scope
 
-- Alembic revision file generation (v0.4)
+- Alembic revision file generation (v0.20)
 - PostgreSQL and DuckDB backends
 - Async API
 - Automatic unsafe migrations
@@ -234,7 +247,7 @@ modelvault plan-migration
 
 ### Success criteria
 
-v0.3 is complete when a developer can:
+v0.19 is complete when a developer can:
 
 1. Change a model contract and receive a classified drift report.
 2. Generate a migration plan describing required schema changes.
@@ -244,11 +257,11 @@ v0.3 is complete when a developer can:
 
 ---
 
-## v0.4 — Production Backends and Async
+## v0.20 — Production Backends and Async
 
 **Theme:** Run ModelVault in production on PostgreSQL with async frameworks and Alembic-aware workflows.
 
-**Depends on:** v0.3 migration planning and stable storage strategies.
+**Depends on:** v0.19 migration planning and stable storage strategies.
 
 ### In scope
 
@@ -286,7 +299,7 @@ v0.3 is complete when a developer can:
 
 ### Success criteria
 
-v0.4 is complete when a developer can:
+v0.20 is complete when a developer can:
 
 1. Deploy the same model contracts against PostgreSQL in production.
 2. Use async collections in an async web service.
@@ -295,11 +308,11 @@ v0.4 is complete when a developer can:
 
 ---
 
-## v0.5 — Analytics and Data Interchange
+## v0.21 — Analytics and Data Interchange
 
 **Theme:** Treat model collections as analytical datasets and interoperate with the Python data stack.
 
-**Depends on:** v0.4 backend abstraction and stable serialization.
+**Depends on:** v0.20 backend abstraction and stable serialization.
 
 ### In scope
 
@@ -328,7 +341,7 @@ v0.4 is complete when a developer can:
 
 ### Success criteria
 
-v0.5 is complete when a developer can:
+v0.21 is complete when a developer can:
 
 1. Open a DuckDB-backed vault for analytical workloads.
 2. Export a collection to a DataFrame and round-trip selected records.
@@ -396,7 +409,7 @@ These constraints apply to every release:
 | Validate the lifecycle | Writes and reads validate by default |
 | Zero lock-in | Data lives in normal SQL tables inspectable without ModelVault |
 | Small public API | Repository-oriented collections, not ORM sessions |
-| Boring underneath | SQLAlchemy Core for SQL; Alembic for applied migrations (v0.4+) |
+| Boring underneath | SQLAlchemy Core for SQL; Alembic for applied migrations (v0.20+) |
 
 ---
 
@@ -419,7 +432,7 @@ These may be revisited based on adoption feedback after 1.0.
 
 **ModelVault is in the design phase.** No implementation code exists yet.
 
-The immediate next step is **v0.1 Phase 0**: scaffold `pyproject.toml`, `src/modelvault/`, and `tests/`, then follow the build order in [`docs/internal/IMPLEMENTATION_PLAN.md`](docs/internal/IMPLEMENTATION_PLAN.md).
+The immediate next step is **v0.17 Phase 0**: scaffold `pyproject.toml`, `src/modelvault/`, and `tests/`, then follow the build order in [`docs/internal/IMPLEMENTATION_PLAN.md`](docs/internal/IMPLEMENTATION_PLAN.md).
 
 ---
 
@@ -428,7 +441,7 @@ The immediate next step is **v0.1 Phase 0**: scaffold `pyproject.toml`, `src/mod
 | Document | Purpose |
 |----------|---------|
 | [`README.md`](README.md) | Project overview and quick example |
-| [`docs/internal/MVP_SPEC.md`](docs/internal/MVP_SPEC.md) | Exact v0.1 scope |
-| [`docs/internal/IMPLEMENTATION_PLAN.md`](docs/internal/IMPLEMENTATION_PLAN.md) | v0.1 build order |
+| [`docs/internal/MVP_SPEC.md`](docs/internal/MVP_SPEC.md) | Exact v0.17 scope |
+| [`docs/internal/IMPLEMENTATION_PLAN.md`](docs/internal/IMPLEMENTATION_PLAN.md) | v0.17 build order |
 | [`docs/internal/ARCHITECTURE.md`](docs/internal/ARCHITECTURE.md) | System design |
 | [`docs/internal/SPEC.md`](docs/internal/SPEC.md) | Functional requirements |

@@ -152,7 +152,7 @@ Planner tests should verify:
 - Stable plan generation.
 - No database access during planning.
 
-## v0.1 Scope
+## v0.17 Scope
 
 Included:
 

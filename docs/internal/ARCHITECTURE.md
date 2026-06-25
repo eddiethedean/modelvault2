@@ -356,7 +356,7 @@ backends/postgres.py
 backends/duckdb.py
 ```
 
-The SQLAlchemy backend should be the main v0.1 implementation. SQLite should ride on SQLAlchemy first.
+The SQLAlchemy backend should be the main v0.17 implementation. SQLite should ride on SQLAlchemy first.
 
 DuckDB may have both:
 
@@ -685,7 +685,7 @@ Reason:
 
 ## SQLite
 
-SQLite should be the v0.1 backend.
+SQLite should be the v0.17 backend.
 
 It is ideal for:
 
@@ -870,7 +870,7 @@ Principle:
 
 # Plugin Architecture
 
-Plugins are not required for v0.1 but should be anticipated.
+Plugins are not required for v0.17 but should be anticipated.
 
 Potential plugins:
 
@@ -1003,7 +1003,7 @@ modelvault/
 
 ---
 
-# v0.1 Architecture Slice
+# v0.17 Architecture Slice
 
 The first implementation should be intentionally narrow.
 
@@ -1035,7 +1035,7 @@ The first implementation should be intentionally narrow.
 - encryption
 - caching
 
-## v0.1 Success Criteria
+## v0.17 Success Criteria
 
 A user can write:
 

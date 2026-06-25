@@ -4,11 +4,11 @@
 
 ## Purpose
 
-This document defines v0.1 storage behavior.
+This document defines v0.17 storage behavior.
 
 ModelVault storage strategies translate Persistence Contracts and Execution Plans into backend operations.
 
-v0.1 supports only **Table Storage**.
+v0.17 supports only **Table Storage**.
 
 ## Storage Strategy Role
 
@@ -28,7 +28,7 @@ It does not know:
 - how to store registry metadata
 - how to manage database connections
 
-## v0.1 Table Storage
+## v0.17 Table Storage
 
 Each model maps to one SQL table.
 
@@ -56,7 +56,7 @@ users
 Default table name:
 
 - snake_case plural-ish model name is acceptable
-- simpler v0.1 default: lowercase model name + "s"
+- simpler v0.17 default: lowercase model name + "s"
 
 Examples:
 
@@ -73,7 +73,7 @@ Allow override:
 
 ## Type Mapping
 
-v0.1 type mapping:
+v0.17 type mapping:
 
 | Python/Pydantic Type | SQLite Type |
 |---|---|
@@ -103,7 +103,7 @@ Fields with defaults may be NOT NULL if default is always materialized during se
 
 The contract key becomes the SQL primary key.
 
-v0.1 supports single-column keys only.
+v0.17 supports single-column keys only.
 
 ## Indexes
 
@@ -113,7 +113,7 @@ Indexes are declared in the contract.
 @model(key="id", storage="table", indexes=["email"])
 ```
 
-v0.1 supports simple single-field non-unique indexes.
+v0.17 supports simple single-field non-unique indexes.
 
 ## Complex Fields
 
@@ -128,7 +128,7 @@ Examples:
 
 ## Metadata Columns
 
-For v0.1, application tables should include:
+For v0.17, application tables should include:
 
 ```text
 __modelvault_schema_hash TEXT

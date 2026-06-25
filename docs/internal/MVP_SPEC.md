@@ -1,18 +1,18 @@
 # MVP_SPEC.md
 
-# ModelVault v0.1 MVP Specification
+# ModelVault v0.17 MVP Specification
 
 ## Purpose
 
-This document defines the exact scope of ModelVault v0.1.
+This document defines the exact scope of ModelVault v0.17.
 
-The goal of v0.1 is not to build the full ModelVault vision. The goal is to prove the core architecture:
+The goal of v0.17 is not to build the full ModelVault vision. The goal is to prove the core architecture:
 
 > A Pydantic model can be converted into a Persistence Contract, registered in database metadata, planned into execution operations, stored in SQLite, and read back as a validated model.
 
-## v0.1 Product Statement
+## v0.17 Product Statement
 
-ModelVault v0.1 is a SQLite-backed model integrity layer for ordinary Pydantic v2 models.
+ModelVault v0.17 is a SQLite-backed model integrity layer for ordinary Pydantic v2 models.
 
 It supports:
 
@@ -54,7 +54,7 @@ assert isinstance(loaded, User)
 assert loaded.email == "alice@example.com"
 ```
 
-## Included in v0.1
+## Included in v0.17
 
 ### Public API
 
@@ -93,7 +93,7 @@ validate_all()
 
 ### Pydantic Support
 
-v0.1 supports Pydantic v2 `BaseModel`.
+v0.17 supports Pydantic v2 `BaseModel`.
 
 Required field types:
 
@@ -112,7 +112,7 @@ Required field types:
 
 ### Storage
 
-v0.1 supports **table storage only**.
+v0.17 supports **table storage only**.
 
 Each model gets one SQL table.
 
@@ -120,11 +120,11 @@ Complex fields are stored as JSON text columns.
 
 ### Backend
 
-v0.1 supports SQLite via SQLAlchemy Core.
+v0.17 supports SQLite via SQLAlchemy Core.
 
 ### Registry
 
-v0.1 creates ModelVault metadata tables:
+v0.17 creates ModelVault metadata tables:
 
 - modelvault_registry
 - modelvault_schemas
@@ -132,7 +132,7 @@ v0.1 creates ModelVault metadata tables:
 
 ### Fingerprints
 
-v0.1 computes deterministic contract hashes from:
+v0.17 computes deterministic contract hashes from:
 
 - model name
 - model module
@@ -156,7 +156,7 @@ Required:
 
 ### Planner
 
-v0.1 includes a simple Planner with:
+v0.17 includes a simple Planner with:
 
 - InsertPlan
 - ReadPlan
@@ -168,9 +168,9 @@ v0.1 includes a simple Planner with:
 
 ### CLI
 
-Optional in v0.1. Do not prioritize until the library API is stable.
+Optional in v0.17. Do not prioritize until the library API is stable.
 
-## Excluded from v0.1
+## Excluded from v0.17
 
 Do not implement:
 
@@ -193,9 +193,9 @@ Do not implement:
 - full CLI
 - Pandas/Polars/Arrow integrations
 
-## v0.1 Success Criteria
+## v0.17 Success Criteria
 
-v0.1 is complete when:
+v0.17 is complete when:
 
 1. A user can define a Pydantic model.
 2. A user can register the model with a key field.

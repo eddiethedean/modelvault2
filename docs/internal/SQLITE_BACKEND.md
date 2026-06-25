@@ -6,7 +6,7 @@
 
 SQLite is the first supported ModelVault backend.
 
-It provides the v0.1 proof that ModelVault can persist Pydantic models to a trusted database without inventing storage.
+It provides the v0.17 proof that ModelVault can persist Pydantic models to a trusted database without inventing storage.
 
 ## Backend Role
 
@@ -85,7 +85,7 @@ This reinforces the importance of read validation.
 
 ## SQLite Invariants
 
-- Do not use raw sqlite3 directly in v0.1.
+- Do not use raw sqlite3 directly in v0.17.
 - Use SQLAlchemy Core.
 - Do not validate Pydantic models in backend.
 - Do not compute contracts in backend.

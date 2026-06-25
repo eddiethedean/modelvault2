@@ -2,11 +2,11 @@
 
 # Cursor Implementation Prompt
 
-Use this prompt to ask Cursor to implement ModelVault v0.1.
+Use this prompt to ask Cursor to implement ModelVault v0.17.
 
 ---
 
-You are implementing ModelVault v0.1 from the design documents in this repository.
+You are implementing ModelVault v0.17 from the design documents in this repository.
 
 ModelVault is a Model Integrity Platform for Python. It is not a database and not a traditional ORM. It persists ordinary Pydantic v2 models into trusted databases, starting with SQLite through SQLAlchemy Core.
 
@@ -46,7 +46,7 @@ Do NOT implement:
 - complex query DSL
 - custom database engine
 
-Implement only v0.1.
+Implement only v0.17.
 
 ## Architecture Rules
 
@@ -126,7 +126,7 @@ No DuckDB.
 
 ## Completion Criteria
 
-v0.1 is complete when:
+v0.17 is complete when:
 
 - README example works
 - all tests pass

@@ -1,10 +1,10 @@
 # TEST_PLAN.md
 
-# ModelVault v0.1 Test Plan
+# ModelVault v0.17 Test Plan
 
 ## Purpose
 
-This document defines the required tests for ModelVault v0.1.
+This document defines the required tests for ModelVault v0.17.
 
 The tests should prove the architecture, not just code coverage.
 
@@ -62,7 +62,7 @@ Verify:
 - contract builds from manual registration
 - key must exist
 - indexes must exist
-- unsupported storage fails in v0.1
+- unsupported storage fails in v0.17
 - non-Pydantic class fails
 
 ## Fingerprint Tests
@@ -175,7 +175,7 @@ assert users.count() == 0
 
 ## Minimum Passing Bar
 
-Before calling v0.1 complete:
+Before calling v0.17 complete:
 
 - all tests pass
 - README example passes

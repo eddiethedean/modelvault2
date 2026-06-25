@@ -26,7 +26,7 @@ The Registry does not own:
 - validation execution
 - execution planning
 
-## v0.1 Metadata Tables
+## v0.17 Metadata Tables
 
 ### modelvault_registry
 
@@ -102,7 +102,7 @@ When registering a contract:
 5. If existing and hash matches, no-op.
 6. If existing and hash differs, report drift.
 
-v0.1 should not automatically migrate changed contracts.
+v0.17 should not automatically migrate changed contracts.
 
 ## Drift Detection
 

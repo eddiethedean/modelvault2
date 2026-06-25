@@ -106,9 +106,9 @@ health()
 
 Official backends:
 
-- SQLite (v0.1)
-- PostgreSQL (v0.4)
-- DuckDB (v0.5)
+- SQLite (v0.17)
+- PostgreSQL (v0.20)
+- DuckDB (v0.21)
 
 ---
 

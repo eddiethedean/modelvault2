@@ -200,7 +200,7 @@ Every component should document:
 - Internal Interface
 - Lifecycle
 
-## v0.1 Component Set
+## v0.17 Component Set
 
 Required:
 

@@ -1,6 +1,6 @@
 # IMPLEMENTATION_PLAN.md
 
-# ModelVault v0.1 Implementation Plan
+# ModelVault v0.17 Implementation Plan
 
 ## Purpose
 
@@ -87,7 +87,7 @@ Validate:
 
 - model is Pydantic BaseModel subclass
 - key exists
-- storage is table for v0.1
+- storage is table for v0.17
 - indexes exist as fields
 
 ## Phase 4 — Fingerprints
@@ -294,6 +294,6 @@ Ensure README examples run.
 
 ## Implementation Rule
 
-Do not add v0.2 features during v0.1 implementation.
+Do not add v0.18 features during v0.17 implementation.
 
 No hybrid storage, document storage, PostgreSQL, DuckDB, Alembic, async, plugins, or complex query DSL.

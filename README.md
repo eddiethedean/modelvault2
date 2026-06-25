@@ -230,7 +230,9 @@ Instead, ModelVault provides the missing layer that keeps application models val
 
 # Roadmap
 
-### v0.1
+Pre-1.0 releases run from **v0.17** through **v0.21**, then **v1.0**. See [`ROADMAP.md`](ROADMAP.md) for full scope and success criteria per version.
+
+### v0.17
 
 - SQLite backend
 - SQLAlchemy Core
@@ -239,26 +241,26 @@ Instead, ModelVault provides the missing layer that keeps application models val
 - Table storage
 - Read/write validation
 
-### v0.2
+### v0.18
 
 - Hybrid storage
 - Document storage
 - Validation reports
 - Health checks
 
-### v0.3
+### v0.19
 
 - Schema fingerprints
 - Drift detection
 - Migration planning
 
-### v0.4
+### v0.20
 
 - PostgreSQL
 - Async API
 - Alembic integration
 
-### v0.5
+### v0.21
 
 - DuckDB
 - DataFrame interoperability

@@ -4,7 +4,7 @@
 
 ## Purpose
 
-This document defines the initial Python package layout for ModelVault v0.1.
+This document defines the initial Python package layout for ModelVault v0.17.
 
 The package should be small, explicit, and implementation-friendly. Avoid premature modularity, but keep architectural boundaries clear.
 
@@ -251,7 +251,7 @@ tests/
   test_health.py
 ```
 
-## v0.1 Dependency Policy
+## v0.17 Dependency Policy
 
 Required dependencies:
 
@@ -262,7 +262,7 @@ Required dependencies:
 
 Avoid:
 
-- Alembic in v0.1
-- DuckDB in v0.1
-- async SQLAlchemy in v0.1
-- optional dataframe dependencies in v0.1
+- Alembic in v0.17
+- DuckDB in v0.17
+- async SQLAlchemy in v0.17
+- optional dataframe dependencies in v0.17

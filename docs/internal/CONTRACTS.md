@@ -788,7 +788,7 @@ AnalyticsUser = Contract(
 
 This allows one domain model to be stored differently for different workloads.
 
-This should not be part of v0.1, but the architecture should not prevent it.
+This should not be part of v0.17, but the architecture should not prevent it.
 
 ---
 
@@ -879,7 +879,7 @@ This turns persistence into an inspectable lifecycle instead of scattered applic
 
 ---
 
-# v0.1 Contract Scope
+# v0.17 Contract Scope
 
 The first implementation should support a narrow but complete contract system.
 
@@ -919,7 +919,7 @@ The first implementation should support a narrow but complete contract system.
 
 Mitigation:
 
-- keep v0.1 contracts minimal
+- keep v0.17 contracts minimal
 - separate required fields from optional policies
 - store extensible metadata as JSON
 
