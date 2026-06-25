@@ -4,6 +4,8 @@
 [![Documentation](https://readthedocs.org/projects/modelvault/badge/?version=latest)](https://modelvault.readthedocs.io/en/latest/)
 [![PyPI version](https://img.shields.io/pypi/v/modelvault.svg)](https://pypi.org/project/modelvault/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![CI](https://github.com/eddiethedean/modelvault2/actions/workflows/ci.yml/badge.svg)](https://github.com/eddiethedean/modelvault2/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 > **Your models are your source of truth. ModelVault keeps them that way.**
@@ -81,7 +83,7 @@ from modelvault import model
 
 @model(
     key="id",
-    storage="hybrid",
+    storage="table",
     indexes=["email"],
 )
 class User(BaseModel):
@@ -107,16 +109,19 @@ The persistence contract—not the table—is the heart of ModelVault.
 # Example
 
 ```python
-from modelvault import Vault
+from pydantic import BaseModel, EmailStr
+from modelvault import Vault, model
+
+@model(key="id", storage="table")
+class User(BaseModel):
+    id: int
+    email: EmailStr
+    active: bool = True
 
 vault = Vault.sqlite("app.db")
-
 users = vault.collection(User)
 
-users.insert(
-    User(id=1, email="alice@example.com")
-)
-
+users.insert(User(id=1, email="alice@example.com"))
 user = users.get(1)
 
 print(user.email)
@@ -205,21 +210,26 @@ Recommended for most applications.
 
 ---
 
-# Planned Features
+# Install
 
-- Typed repositories
-- Validation on read and write
-- Schema fingerprinting
-- Drift detection
-- Model registry
-- Metadata tables
-- Migration planning
-- Health reports
-- Validation reports
-- SQLite, PostgreSQL, and DuckDB backends
-- Pandas / Polars / PyArrow interoperability
-- Alembic integration
-- Async API
+```bash
+pip install modelvault
+```
+
+# What's in v0.17
+
+- SQLite backend via SQLAlchemy Core
+- Table storage for Pydantic v2 models
+- Typed collections with validated reads and writes
+- Registry metadata and contract fingerprints
+- Basic drift detection and health checks
+
+# Coming Soon
+
+- Hybrid and document storage (v0.18)
+- Migration planning and CLI (v0.19)
+- PostgreSQL, async, and Alembic integration (v0.20)
+- DuckDB and DataFrame interoperability (v0.21)
 
 ---
 
@@ -255,9 +265,9 @@ Pre-1.0 releases run from **v0.17** through **v0.21**, then **v1.0**. See [`ROAD
 
 ### v0.19
 
-- Schema fingerprints
-- Drift detection
+- Classified drift reports
 - Migration planning
+- Operational CLI
 
 ### v0.20
 
@@ -279,8 +289,18 @@ Stable public API with long-term compatibility guarantees.
 
 # Contributing
 
-ModelVault is currently in the design phase.
+ModelVault v0.17 is the first public implementation release. Contributions, issues, and feedback are welcome on [GitHub](https://github.com/eddiethedean/modelvault2).
 
-The project is being built around one central promise:
+```bash
+git clone https://github.com/eddiethedean/modelvault2.git
+cd modelvault2
+pip install -e ".[dev,docs]"
+pytest
+ruff check src tests
+```
+
+See [CHANGELOG.md](CHANGELOG.md) for release history and [ROADMAP.md](ROADMAP.md) for planned versions.
+
+The project is built around one central promise:
 
 > **Your models are your source of truth. ModelVault keeps them that way.**

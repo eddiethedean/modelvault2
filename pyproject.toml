@@ -4,19 +4,45 @@ build-backend = "hatchling.build"
 
 [project]
 name = "modelvault"
-version = "0.17.0"
+dynamic = ["version"]
 description = "Model integrity layer between Pydantic and trusted databases"
 readme = "README.md"
+license = "MIT"
 requires-python = ">=3.10"
+authors = [
+    { name = "Odo Matthews", email = "odosmatthews@gmail.com" },
+]
+keywords = ["pydantic", "sqlite", "persistence", "validation", "sqlalchemy"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
 dependencies = [
     "pydantic>=2",
     "sqlalchemy>=2",
 ]
 
+[project.urls]
+Homepage = "https://github.com/eddiethedean/modelvault2"
+Documentation = "https://modelvault.readthedocs.io/en/latest/"
+Repository = "https://github.com/eddiethedean/modelvault2"
+Issues = "https://github.com/eddiethedean/modelvault2/issues"
+Changelog = "https://github.com/eddiethedean/modelvault2/blob/main/CHANGELOG.md"
+
 [project.optional-dependencies]
 dev = [
     "pytest>=7",
     "ruff>=0.4",
+    "build>=1",
 ]
 docs = [
     "sphinx>=7",
@@ -24,14 +50,23 @@ docs = [
     "myst-parser>=2",
 ]
 
+[tool.hatch.version]
+path = "src/modelvault/_version.py"
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/modelvault"]
 
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+  "/.readthedocs.yaml",
+  "/docs",
+  "/tests",
+  "/ROADMAP.md",
+]
+
 [tool.hatch.build.targets.editable]
 dev-mode-dirs = ["src"]
-
-[tool.hatch.build.targets.wheel.force-include]
-"src/modelvault" = "modelvault"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
